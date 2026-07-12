@@ -21,14 +21,25 @@ export const portfolio = {
       logo: "/YonseiUniversityEmblem.svg.png",
       school: "Yonsei University, Seoul, South Korea",
       period: "February 2024 - June 2024",
-      degree: "Bachelor of Science, Computer Science (Software Engineering)"
+      degree: "Computer Science Exchange Semester"
     }
   ],
   skills: {
     languages: ["Java", "Python", "C", "C#", "JavaScript", "TypeScript", "SQL", "Bash"],
-    web: ["React", "Next.js", ".NET Core", "Node.js", "Firebase", "Supabase", "PostgreSQL", "HTML/CSS"],
-    toolsDevOps: ["Azure DevOps", "Git/Github", "CI/CD", "Agile", "Railway", "Linux"],
-    specialized: ["OpenAI", "ABB RobotStudio", "Unity", "Blender", "DaVinci Resolve", "Lightroom"]
+    frameworks: ["Angular", "React", "React Native", "ASP.NET Core", "Entity Framework Core", "Node.js"],
+    dataDevOps: [
+      "SQL Server",
+      "SSMS",
+      "PostgreSQL",
+      "Supabase",
+      "Firebase",
+      "Azure DevOps",
+      "Azure Functions",
+      "CI/CD",
+      "Git/GitHub",
+      "Linux"
+    ],
+    aiRobotics: ["OpenAI API", "ABB RobotStudio"]
   },
   awards: [
     "S&B Engineers and Constructors Scholarship (2025)",
@@ -124,6 +135,16 @@ export const portfolio = {
     }
   ],
   experience: [
+    {
+      role: "Software Engineer Intern",
+      company: "Performance Contractors Inc",
+      period: "July 2026 - Present",
+      bullets: [
+        "Developed full-stack features for an enterprise workforce platform using Angular, ASP.NET Core, and SQL Server to streamline payroll, timesheet, and project productivity workflows.",
+        "Engineered secure role-based access control using Microsoft Entra ID, MSAL, and JWTs to enforce route-level permissions across five user privilege tiers.",
+        "Improved scalability for high-volume payroll processing by moving intensive calculations and automated Excel and PDF report generation to Azure Functions and RESTful APIs."
+      ]
+    },
     {
       role: "Student AI Software Developer",
       company: "Performance Contractors Inc",

@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { portfolio } from "./content";
 
 function App() {
   const [lightsOn, setLightsOn] = useState(true);
   const [showAltPhoto, setShowAltPhoto] = useState(false);
+  const pointerPosition = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     document.body.classList.toggle("lights-on-body", lightsOn);
@@ -41,17 +42,22 @@ function App() {
     };
 
     const handleMove = (event) => {
+      pointerPosition.current = { x: event.clientX, y: event.clientY };
       schedule(event.clientX, event.clientY);
     };
 
     const handleTouch = (event) => {
       const touch = event.touches[0];
       if (touch) {
+        pointerPosition.current = { x: touch.clientX, y: touch.clientY };
         schedule(touch.clientX, touch.clientY);
       }
     };
 
-    setSpotlightPosition(window.innerWidth * 0.5, window.innerHeight * 0.24);
+    const initialPosition = pointerPosition.current.x
+      ? pointerPosition.current
+      : { x: window.innerWidth * 0.5, y: window.innerHeight * 0.24 };
+    setSpotlightPosition(initialPosition.x, initialPosition.y);
     window.addEventListener("pointermove", handleMove);
     window.addEventListener("touchstart", handleTouch, { passive: true });
     window.addEventListener("touchmove", handleTouch, { passive: true });
@@ -72,6 +78,11 @@ function App() {
         <button
           type="button"
           className={`mode-switch ${lightsOn ? "is-on" : "is-off"}`}
+          onPointerDown={(event) => {
+            pointerPosition.current = { x: event.clientX, y: event.clientY };
+            document.documentElement.style.setProperty("--spotlight-x", `${event.clientX}px`);
+            document.documentElement.style.setProperty("--spotlight-y", `${event.clientY}px`);
+          }}
           onClick={() => setLightsOn((value) => !value)}
           aria-pressed={lightsOn}
         >
@@ -130,7 +141,7 @@ function App() {
         <div>
           <p className="section-label">About</p>
           <h2>
-            I'm a passionate software engineer, who likes to do judo, make short films, and do
+            I'm a passionate software engineer who likes to do judo, make short films, and do
             photography and editing in my free time. I love using technology to expand upon my
             creative and technical capabilities.
           </h2>
@@ -258,9 +269,9 @@ function App() {
             </div>
           </div>
           <div className="skill-category">
-            <h4>Web</h4>
+            <h4>Frameworks</h4>
             <div className="stack-grid">
-              {portfolio.skills.web.map((item) => (
+              {portfolio.skills.frameworks.map((item) => (
                 <span key={item} className="stack-chip">
                   {item}
                 </span>
@@ -268,9 +279,9 @@ function App() {
             </div>
           </div>
           <div className="skill-category">
-            <h4>Tools & DevOps</h4>
+            <h4>Data & DevOps</h4>
             <div className="stack-grid">
-              {portfolio.skills.toolsDevOps.map((item) => (
+              {portfolio.skills.dataDevOps.map((item) => (
                 <span key={item} className="stack-chip">
                   {item}
                 </span>
@@ -278,9 +289,9 @@ function App() {
             </div>
           </div>
           <div className="skill-category">
-            <h4>Specialized</h4>
+            <h4>AI & Robotics</h4>
             <div className="stack-grid">
-              {portfolio.skills.specialized.map((item) => (
+              {portfolio.skills.aiRobotics.map((item) => (
                 <span key={item} className="stack-chip">
                   {item}
                 </span>
