@@ -138,7 +138,7 @@ export const portfolio = {
     {
       role: "Software Engineer Intern",
       company: "Performance Contractors Inc",
-      period: "July 2026 - Present",
+      period: "July 2026 - Sept 2026",
       bullets: [
         "Developed full-stack features for an enterprise workforce platform using Angular, ASP.NET Core, and SQL Server to streamline payroll, timesheet, and project productivity workflows.",
         "Engineered secure role-based access control using Microsoft Entra ID, MSAL, and JWTs to enforce route-level permissions across five user privilege tiers.",
