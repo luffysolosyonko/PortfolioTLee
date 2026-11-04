@@ -85,7 +85,19 @@ export const portfolio = {
       ]
     },
     {
-      name: "Discord Workout Tracker",
+      name: "Jarvis Bot 0.0",
+      // Extra boxes you can flip to with the arrows.
+      pages: [
+        {
+          name: "Jarvis Bot 1.0",
+          summary:
+            "Discord bot that logs workouts, bodyweight and drink logs into data you can track, chart and ask questions about. It can create predictions and charts for your 1-rep max, and it can answer questions about your data in plain English.",
+          stack: ["Python", "SQLite", "Claude API", "Google Sheets API", "Google Cloud"],
+          notes:
+            "Built parsers that read workout shorthand typed fast between sets, like \"12x1f 25kg rear delt fly\" or several rest-pause sets on one line, and store it in SQLite (about 800 messages and 600 sets from real use). Added estimated 1-rep max tracking with goal-date forecasts, charts posted straight into Discord, and a Google Sheet that stays in sync. Connected Claude for plain-English questions and cut the cost per question roughly in half by sending only the data each question needs. Runs on a Google Cloud VM, redeploys itself from GitHub, and has a test suite behind it.",
+          link: "https://github.com/luffysolosyonko/Jarvisbot1.0-public"
+        }
+      ],
       summary:
         "Discord bot that logs workouts, tracks progress, and estimates calories burned across servers.",
       stack: ["Node.js", "Firebase", "Python", "Railway"],

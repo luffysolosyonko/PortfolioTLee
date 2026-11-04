@@ -1,6 +1,129 @@
 import { useEffect, useRef, useState } from "react";
 import { portfolio } from "./content";
 
+const VERSION_RE = /\d+(\.\d+)+/;
+
+function versionOf(p) {
+  return (p.name && p.name.match(VERSION_RE)?.[0]) || "";
+}
+
+// Compare "1.10" vs "1.2" part by part, newest first.
+function compareVersionsDesc(a, b) {
+  const pa = versionOf(a).split(".").map(Number);
+  const pb = versionOf(b).split(".").map(Number);
+  for (let i = 0; i < Math.max(pa.length, pb.length); i += 1) {
+    const diff = (pb[i] || 0) - (pa[i] || 0);
+    if (diff !== 0) return diff;
+  }
+  return 0;
+}
+
+function ProjectDetails({ page }) {
+  return (
+    <>
+      {page.notes && <p className="project-notes">{page.notes}</p>}
+
+      {page.screenshots && page.screenshots.length > 0 && (
+        <div className="project-screenshots">
+          {page.screenshots.map((screenshot) => (
+            <img
+              key={screenshot}
+              src={screenshot}
+              alt={`${page.name} screenshot`}
+              className="project-screenshot"
+            />
+          ))}
+        </div>
+      )}
+
+      {page.stack && page.stack.length > 0 && (
+        <div className="stack-list">
+          {page.stack.map((item) => (
+            <span key={item} className="stack-pill">
+              {item}
+            </span>
+          ))}
+        </div>
+      )}
+    </>
+  );
+}
+
+function SourceLink({ page }) {
+  return page.link ? (
+    <a className="project-link" href={page.link} target="_blank" rel="noreferrer">
+      Source
+    </a>
+  ) : (
+    <span className="project-link muted">{page.linkLabel || "Private project"}</span>
+  );
+}
+
+function VersionedProjectCard({ project }) {
+  const versions = [project, ...project.pages].sort(compareVersionsDesc);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const page = versions[activeIndex];
+  const title = project.name.replace(VERSION_RE, "").trim();
+
+  return (
+    <article className="project-card versioned-card">
+      <div className="versioned-header">
+        <h3>{title}</h3>
+      </div>
+
+      <div className="version-tabs" role="tablist">
+        {versions.map((v, i) => {
+          const label = versionOf(v) ? `v${versionOf(v)}` : `#${i + 1}`;
+          return (
+            <button
+              key={v.name || i}
+              type="button"
+              role="tab"
+              aria-selected={i === activeIndex}
+              className={`version-tab${i === activeIndex ? " active" : ""}`}
+              onClick={() => setActiveIndex(i)}
+            >
+              {i === 0 ? `Latest (${label})` : label}
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="version-panel" role="tabpanel">
+        <div className="project-top">
+          <div>
+            <h4 className="version-title">
+              {versionOf(page) ? `Version ${versionOf(page)}` : page.name}
+            </h4>
+            {page.summary && <p className="project-summary">{page.summary}</p>}
+          </div>
+          <SourceLink page={page} />
+        </div>
+        <ProjectDetails page={page} />
+      </div>
+    </article>
+  );
+}
+
+function ProjectCard({ project }) {
+  if (project.pages && project.pages.length > 0) {
+    return <VersionedProjectCard project={project} />;
+  }
+
+  return (
+    <article className="project-card">
+      <div className="project-top">
+        <div>
+          <h3>{project.name}</h3>
+          {project.summary && <p className="project-summary">{project.summary}</p>}
+        </div>
+        <SourceLink page={project} />
+      </div>
+      <ProjectDetails page={project} />
+    </article>
+  );
+}
+
 function App() {
   const [lightsOn, setLightsOn] = useState(true);
   const [showAltPhoto, setShowAltPhoto] = useState(false);
@@ -210,44 +333,7 @@ function App() {
 
         <div className="project-list">
           {portfolio.projects.map((project) => (
-            <article key={project.name} className="project-card">
-              <div className="project-top">
-                <div>
-                  <h3>{project.name}</h3>
-                  <p className="project-summary">{project.summary}</p>
-                </div>
-                {project.link ? (
-                  <a className="project-link" href={project.link} target="_blank" rel="noreferrer">
-                    Source
-                  </a>
-                ) : (
-                  <span className="project-link muted">{project.linkLabel || "Private project"}</span>
-                )}
-              </div>
-
-              <p className="project-notes">{project.notes}</p>
-
-              {project.screenshots && project.screenshots.length > 0 && (
-                <div className="project-screenshots">
-                  {project.screenshots.map((screenshot) => (
-                    <img
-                      key={screenshot}
-                      src={screenshot}
-                      alt={`${project.name} screenshot`}
-                      className="project-screenshot"
-                    />
-                  ))}
-                </div>
-              )}
-
-              <div className="stack-list">
-                {project.stack.map((item) => (
-                  <span key={item} className="stack-pill">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </article>
+            <ProjectCard key={project.name} project={project} />
           ))}
         </div>
       </section>

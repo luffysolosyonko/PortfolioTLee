@@ -1,4 +1,4 @@
-# Thomas Lee Portfolio
+# portfolioTL (Thomas Lee Portfolio)
 
 A personal portfolio site built with Vite and React.
 
