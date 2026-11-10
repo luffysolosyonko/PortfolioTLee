@@ -63,28 +63,6 @@ export const portfolio = {
       linkLabel: "Private project"
     },
     {
-      name: "Whirl",
-      summary:
-        "Cross-platform mobile app for user profiles, event discovery, and real-time data access.",
-      stack: ["React Native", "Expo", "TypeScript", "Supabase", "PostgreSQL"],
-      notes:
-        "Implemented authentication, profile management, event discovery, and mobile UI flows for iOS and Android.",
-      link: "https://github.com/ghebert3/4330-Group-Project"
-    },
-    {
-      name: "Poetry Garden",
-      summary:
-        "Full-stack poetry sharing app with authentication, real-time poem storage, and an interactive visual discovery experience.",
-      stack: ["React", "TypeScript", "Firebase"],
-      notes:
-        "Built Firebase auth and real-time database flows, designed a flower-association feature for each poem, and optimized the responsive React frontend for publishing and browsing.",
-      link: "https://github.com/CSC-3380-Spring-2025/Team-29",
-      screenshots: [
-        "/poetry-garden/Screenshot 2026-05-06 221308.png",
-        "/poetry-garden/Screenshot 2026-05-06 221445.png"
-      ]
-    },
-    {
       name: "Jarvis Bot 0.0",
       // Extra boxes you can flip to with the arrows.
       pages: [
@@ -118,6 +96,28 @@ export const portfolio = {
       notes:
         "Integrated Firebase for workout history and performance data, generated progress graphs over time, and deployed with environment variable handling for stable multi-server use.",
       link: "https://github.com/luffysolosyonko/discord-workout-tracker"
+    },
+    {
+      name: "Whirl",
+      summary:
+        "Cross-platform mobile app for user profiles, event discovery, and real-time data access.",
+      stack: ["React Native", "Expo", "TypeScript", "Supabase", "PostgreSQL"],
+      notes:
+        "Implemented authentication, profile management, event discovery, and mobile UI flows for iOS and Android.",
+      link: "https://github.com/ghebert3/4330-Group-Project"
+    },
+    {
+      name: "Poetry Garden",
+      summary:
+        "Full-stack poetry sharing app with authentication, real-time poem storage, and an interactive visual discovery experience.",
+      stack: ["React", "TypeScript", "Firebase"],
+      notes:
+        "Built Firebase auth and real-time database flows, designed a flower-association feature for each poem, and optimized the responsive React frontend for publishing and browsing.",
+      link: "https://github.com/CSC-3380-Spring-2025/Team-29",
+      screenshots: [
+        "/poetry-garden/Screenshot 2026-05-06 221308.png",
+        "/poetry-garden/Screenshot 2026-05-06 221445.png"
+      ]
     },
     {
       name: "Personality Country Quiz",
