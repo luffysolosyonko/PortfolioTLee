@@ -25,21 +25,40 @@ export const portfolio = {
     }
   ],
   skills: {
-    languages: ["Java", "Python", "C", "C#", "JavaScript", "TypeScript", "SQL", "Bash"],
-    frameworks: ["Angular", "React", "React Native", "ASP.NET Core", "Entity Framework Core", "Node.js"],
+    languages: ["Java", "Python", "C", "C#", "JavaScript", "TypeScript", "SQL", "Bash", "HTML", "CSS", "GML"],
+    frameworks: [
+      "Angular",
+      "React",
+      "Next.js",
+      "React Native",
+      "Expo",
+      "Vite",
+      "ASP.NET Core",
+      "Entity Framework Core",
+      "Node.js",
+      "FastAPI",
+      "Unity",
+      "GameMaker"
+    ],
     dataDevOps: [
       "SQL Server",
       "SSMS",
       "PostgreSQL",
+      "SQLite",
       "Supabase",
       "Firebase",
       "Azure DevOps",
       "Azure Functions",
+      "Microsoft Entra ID",
+      "Google Cloud",
+      "Google Sheets API",
+      "Railway",
+      "Docker",
       "CI/CD",
       "Git/GitHub",
       "Linux"
     ],
-    aiRobotics: ["OpenAI API", "ABB RobotStudio"]
+    aiRobotics: ["OpenAI API", "Claude API", "ABB RobotStudio"]
   },
   awards: [
     "S&B Engineers and Constructors Scholarship (2025)",
