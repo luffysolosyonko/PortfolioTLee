@@ -96,6 +96,16 @@ export const portfolio = {
           notes:
             "Built parsers that read workout shorthand typed fast between sets, like \"12x1f 25kg rear delt fly\" or several rest-pause sets on one line, and store it in SQLite (about 800 messages and 600 sets from real use). Added estimated 1-rep max tracking with goal-date forecasts, charts posted straight into Discord, and a Google Sheet that stays in sync. Connected Claude for plain-English questions and cut the cost per question roughly in half by sending only the data each question needs. Runs on a Google Cloud VM, redeploys itself from GitHub, and has a test suite behind it.",
           link: "https://github.com/luffysolosyonko/Jarvisbot1.0-public"
+        },
+        {
+          name: "Jarvis 2.0",
+          summary:
+            "Web app version of Jarvis with accounts, so anyone can sign in and log workouts and weigh-ins like a notepad. Type it the way you would in a chat, and it parses, saves and charts it, with an AI mode for questions about your progress.",
+          stack: ["React", "TypeScript", "Vite", "FastAPI", "PostgreSQL", "Firebase Auth", "Claude API", "Docker"],
+          notes:
+            "Ported the parser from Jarvis Bot 1.0 into a Python package behind a FastAPI backend, so shorthand like \"8x 160lb bench\" or \"83.9kg\" is turned into structured data instantly without calling AI. Claude is only used in Ask mode, which keeps logging free and predictable. Added Firebase sign-in (email, Google, or a one-click demo account) with each user's data kept separate in Postgres, a history calendar marking workout days, one-click tools for stats and lift forecasts, and a test suite running in GitHub Actions.",
+          link: null,
+          linkLabel: "Private project"
         }
       ],
       summary:
