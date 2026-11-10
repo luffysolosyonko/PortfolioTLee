@@ -102,7 +102,14 @@ export const portfolio = {
           summary:
             "Web app version of Jarvis with accounts, so anyone can sign in and log workouts and weigh-ins like a notepad. Type it the way you would in a chat, and it parses, saves and charts it, with an AI mode for questions about your progress.",
           stack: ["React", "TypeScript", "Vite", "FastAPI", "PostgreSQL", "Firebase", "Claude API", "Docker"],
-          link: "https://github.com/luffysolosyonko/Jarvisbot2.0"
+          link: "https://github.com/luffysolosyonko/Jarvisbot2.0",
+          portraitScreenshots: true,
+          screenshots: [
+            "/jarvis-2/notebook.png",
+            "/jarvis-2/history.png",
+            "/jarvis-2/progress.png",
+            "/jarvis-2/ask.png"
+          ]
         }
       ],
       summary:

@@ -24,7 +24,7 @@ function ProjectDetails({ page }) {
       {page.notes && <p className="project-notes">{page.notes}</p>}
 
       {page.screenshots && page.screenshots.length > 0 && (
-        <div className="project-screenshots">
+        <div className={`project-screenshots${page.portraitScreenshots ? " portrait" : ""}`}>
           {page.screenshots.map((screenshot) => (
             <img
               key={screenshot}

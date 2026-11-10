@@ -585,6 +585,21 @@ h3 {
   transition: transform 180ms ease, border-color 180ms ease;
 }
 
+.project-screenshots.portrait {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.project-screenshots.portrait .project-screenshot {
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .project-screenshots.portrait {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .project-screenshot:hover {
   transform: scale(1.02);
   border-color: rgba(125, 211, 252, 0.36);
