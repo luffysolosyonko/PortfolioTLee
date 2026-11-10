@@ -101,11 +101,10 @@ export const portfolio = {
           name: "Jarvis 2.0",
           summary:
             "Web app version of Jarvis with accounts, so anyone can sign in and log workouts and weigh-ins like a notepad. Type it the way you would in a chat, and it parses, saves and charts it, with an AI mode for questions about your progress.",
-          stack: ["React", "TypeScript", "Vite", "FastAPI", "PostgreSQL", "Firebase Auth", "Claude API", "Docker"],
+          stack: ["React", "TypeScript", "Vite", "FastAPI", "PostgreSQL", "Firebase", "Claude API", "Docker"],
           notes:
             "Ported the parser from Jarvis Bot 1.0 into a Python package behind a FastAPI backend, so shorthand like \"8x 160lb bench\" or \"83.9kg\" is turned into structured data instantly without calling AI. Claude is only used in Ask mode, which keeps logging free and predictable. Added Firebase sign-in (email, Google, or a one-click demo account) with each user's data kept separate in Postgres, a history calendar marking workout days, one-click tools for stats and lift forecasts, and a test suite running in GitHub Actions.",
-          link: null,
-          linkLabel: "Private project"
+          link: "https://github.com/luffysolosyonko/Jarvisbot2.0"
         }
       ],
       summary:
